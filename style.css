@@ -931,6 +931,10 @@ body{
     max-height: 10vh;
 } */
 @media (max-width:600px){
+    @font-face{
+        font-family: futura;
+        src: url(Futura-Bold.ttf)
+    }
     @font-face {
         font-family: MyFont;
         src: url(HelveticaNowText-Regular\ \(1\).ttf);
