@@ -1249,7 +1249,7 @@ body{
         .impact-section {
             flex-direction: column; /* Stack text and image containers vertically */
             gap: 10px; /* Increase gap for vertical spacing */
-            padding: 2px; /* Adjust padding for smaller screens */
+            padding: 0px; /* Adjust padding for smaller screens */
             margin-top: -120%;
         }
     
