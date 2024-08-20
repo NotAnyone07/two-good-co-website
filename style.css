@@ -597,7 +597,31 @@ body{
     line-height: 26px;
     white-space: pre-line;
 }
-
+#test3{
+    line-height: 50px;
+}
+#test4{
+    line-height: 50px;
+    white-space:pre-line;
+}
+#test5{
+    line-height: 50px;
+}
+#test6{
+    line-height: 50px;
+}
+#test7{
+    line-height: 50px;
+}
+#test8{
+    line-height: 50px;
+}
+#test9{
+    line-height: 50px;
+}
+#test10{
+    line-height: 50px;
+} 
 .button-container {
     display: flex;
     justify-content: center; /* Center the button horizontally */
@@ -1152,7 +1176,32 @@ body{
             font-size: 110%; /* Adjust font size for smaller screens */
             line-height: 0.5; /* Adjust line height to match new font size */
             padding: 15px 3px;
-        }        
+        }    
+        #test3{
+            line-height: 20px;
+        }
+        #test4{
+            line-height: 20px;
+            white-space:pre-line;
+        }
+        #test5{
+            line-height: 20px;
+        }
+        #test6{
+            line-height: 20px;
+        }
+        #test7{
+            line-height: 20px;
+        }
+        #test8{
+            line-height: 20px;
+        } 
+        #test9{
+            line-height: 20px;
+        }  
+        #test10{
+            line-height: 20px;
+        } 
     
         .button-container {
             padding-left: 20vw; /* Adjust padding for smaller screens */
