@@ -433,7 +433,9 @@ body{
     padding-top: 20px;
     margin-right: 295px;
     min-width: 150px; /* Ensures the container doesn't shrink too much */
+
 }
+
 
 
 #page3{
@@ -718,10 +720,24 @@ body{
 #more {
     font-family: MyFont2;
     text-transform: uppercase;
-    color: #000;
-    text-decoration: underline solid #000;
-    text-underline-offset: 10px;
+    color: #333;
+    text-decoration: none;
+       /* text-underline-offset: 10px; */
     font-size: 10px;
+    position: relative;
+}
+#more::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #000;
+    transition: all ease 0.5s;
+}
+#more:hover::after{
+    width: 100%;
 }
 
 .image-container {
