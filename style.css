@@ -1324,7 +1324,7 @@ body{
     }
     
     .connect-links-container a {
-        margin: 0px 175px; /* Adjust margin for beter spacing on mobile */
+        margin: 0px 160px; /* Adjust margin for beter spacing on mobile */
         text-align: center;
         align-items: center;
     }
