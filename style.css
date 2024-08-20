@@ -931,6 +931,14 @@ body{
     max-height: 10vh;
 } */
 @media (max-width:600px){
+    @font-face {
+        font-family: MyFont;
+        src: url(HelveticaNowText-Regular\ \(1\).ttf);
+    }
+    @font-face {
+        font-family: MyFont2;
+        src: url(ABCSocialMono-Regular.ttf);
+    }
     #nav{
         /* height: 100px; */
         width: 100%;
@@ -1237,7 +1245,7 @@ body{
         .impact-section {
             flex-direction: column; /* Stack text and image containers vertically */
             gap: 10px; /* Increase gap for vertical spacing */
-            padding: 15px; /* Adjust padding for smaller screens */
+            padding: 2px; /* Adjust padding for smaller screens */
             margin-top: -120%;
         }
     
