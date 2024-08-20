@@ -1249,8 +1249,8 @@ body{
         .impact-section {
             flex-direction: column; /* Stack text and image containers vertically */
             gap: 10px; /* Increase gap for vertical spacing */
-            padding: 0px; /* Adjust padding for smaller screens */
-            margin-top: -120%;
+            padding: 2px; /* Adjust padding for smaller screens */
+            margin-top: -100%;
         }
     
         .text-container {
@@ -1282,8 +1282,8 @@ body{
             border-radius: 8px; /* Optional: Add rounded corners */
         }
         #page7 {
-            margin-top: -90vh;
-            min-height: 100vh;
+            margin-top: -100%;
+            min-height: 100%;
             width: 100%;
             
         }
