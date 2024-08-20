@@ -1,0 +1,6 @@
+ok so box color need to be changed
+fix play✔️
+add video in play
+add image animation on pag7✔️
+make it responsive
+write page 5 blah blah
