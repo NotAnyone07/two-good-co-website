@@ -272,6 +272,7 @@ document.querySelectorAll('.nav-item').forEach(item => {
 // // Trigger the animation
 // animateTestimonials();
 // Register ScrollTrigger plugin
+
 document.addEventListener("contextmenu",function(e){
   e.preventDefault()
 },false)
