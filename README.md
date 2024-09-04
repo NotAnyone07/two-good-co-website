@@ -1,7 +1,7 @@
 <h1 align="center">Two Good Co Project - AWWWARDS winning Website Clone</h1>
 
 <p align="center">
-  <img src="path/to/screenshot.png" alt="Project Screenshot" />
+  <img src="project on mac book.png" alt="Project Screenshot" />
 </p>
 
 <h2>Table of Contents</h2>
@@ -59,7 +59,7 @@
 </code></pre>
 
 <h2 id="license">License</h2>
-<p>This project is licensed under the MIT License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
+<p>This project is licensed under the GNU General Public License (GPL) License. See the <a href="LICENSE">LICENSE</a> file for details.</p>
 
 <h2 id="contact">Contact</h2>
 <p>If you have any questions, feel free to reach out:</p>
