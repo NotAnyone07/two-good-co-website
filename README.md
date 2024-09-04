@@ -18,7 +18,7 @@
 <h2 id="introduction">Introduction</h2>
 <p>
   This project is a <strong>clone</strong> of the 
-  AWWWARDS winning website <strong>Two Good Co.</strong>. The aim of this project is to recreate the smooth and interactive experience of the original site while learning advanced web development techniques.
+  AWWWARDS winning website <strong>Two Good Co.</strong> The aim of this project is to recreate the smooth and interactive experience of the original site while learning advanced web development techniques.
 </p>
 
 <h2 id="features">Features</h2>
