@@ -111,43 +111,73 @@ function locomotiveAnimation() {
   }
   navbarAnimation()
 
-  function videoAnime() {
-    var video = document.querySelector("#video_container");
-    var playbtn = document.querySelector("#play");
-
-    // Mouse enter animation
-    video.addEventListener("mouseenter", function() {
-        gsap.to(playbtn, {
-            scale: 1,
-            opacity: 1,
-            duration: 0.3
-        });
+  function combinedAnime() {
+    var muted = true; // Initial state is muted
+    const video = document.getElementById("video");
+    const videoCursor = document.getElementById("video-cursor");
+    const videoContainer = document.getElementById("video_container");
+    const playbtn = document.getElementById("play");
+  
+    // Follow cursor movement
+    document.addEventListener("mousemove", function(dets) {
+      gsap.to("usercrsr", {
+        left: dets.x,
+        top: dets.y
+      });
+  
+      // Move the play button with the cursor
+      var rect = videoContainer.getBoundingClientRect();
+      var playbtnWidth = playbtn.offsetWidth / 2; // Half of the button width
+      var playbtnHeight = playbtn.offsetHeight / 2; // Half of the button height
+      
+      gsap.to(playbtn, {
+        left: dets.clientX - rect.left - playbtnWidth,
+        top: dets.clientY - rect.top - playbtnHeight,
+        duration: 0.3
+      });
     });
-
-    // Mouse leave animation
-    video.addEventListener("mouseleave", function() {
-        gsap.to(playbtn, {
-            scale: 0,
-            opacity: 0,
-            duration: 0.3
-        });
+  
+    // Mouse enter and leave animations for play button
+    videoContainer.addEventListener("mouseenter", function() {
+      gsap.to(playbtn, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.3
+      });
     });
-
-    // Move the play button with the cursor
-    video.addEventListener("mousemove", function(dets) {
-        var rect = video.getBoundingClientRect();
-        var playbtnWidth = playbtn.offsetWidth / 2; // Half of the button width
-        var playbtnHeight = playbtn.offsetHeight / 2; // Half of the button height
-        
-        gsap.to(playbtn, {
-            left: dets.clientX - rect.left - playbtnWidth,
-            top: dets.clientY - rect.top - playbtnHeight,
-            duration: 0.3,
-        });
+  
+    videoContainer.addEventListener("mouseleave", function() {
+      gsap.to(playbtn, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.3
+      });
     });
-}
-
-videoAnime();
+  
+    // Toggle mute/unmute on clicking video container or custom cursor
+    videoContainer.addEventListener("click", function() {
+      if (muted) {
+        video.muted = false;
+        videoCursor.innerHTML = `<i class="ri-volume-mute-fill"></i>`;
+        playbtn.innerText = "MUTE";
+        gsap.to("#video-cursor", {
+          scale: 0.5
+        });
+        muted = false;
+      } else {
+        video.muted = true;
+        videoCursor.innerHTML = `<i class="ri-volume-up-fill"></i>`;
+        playbtn.innerText = "PLAY";
+        gsap.to("#video-cursor", {
+          scale: 1
+        });
+        muted = true;
+      }
+    });
+  }
+  
+  combinedAnime();
+  
 
 
 
@@ -225,58 +255,37 @@ TextAnime();
 
 //     })
 // })
-function cursorAnime() {
-  var muted = true; // Initial state is muted
-  const video = document.getElementById("video");
-  const videoCursor = document.getElementById("video-cursor");
 
-  // Follow cursor movement
-  document.addEventListener("mousemove", function(dets) {
-    gsap.to(".usercursor1", {
-      left: dets.x,
-      top: dets.y
-    });
-  });
 
-  // Hover effect for elements
-  document.querySelectorAll("#play").forEach(function(elem) {
-    elem.addEventListener("mouseenter", function() {
-      gsap.to(".usercursor1", {
-        transform: 'translate(-50%, -50%) scale(1)',
-        pointerEvents: "auto" // Enable pointer events for clicking
-      });
-    });
-    elem.addEventListener("mouseleave", function() {
-      gsap.to(".usercursor1", {
-        transform: 'translate(-50%, -50%) scale(0)',
-        pointerEvents: "none" // Disable pointer events after leaving
-      });
-    });
-  });
+function cursorAnime(){
+  document.addEventListener("mousemove", function(dets){
+      gsap.to(".usercursor",{
+          left:dets.x,
+          top:dets.y
+  
+      })
+  
+  })
+  document.querySelectorAll(".child").forEach(function(elem){
+      elem.addEventListener("mouseenter",function(){
+        gsap.to(".usercursor",{
+        transform: 'translate(-50%,-50%) scale(1)'
+  
+      })
+  
+   })
+   elem.addEventListener("mouseleave",function(){
+      gsap.to(".usercursor",{
+      transform: 'translate(-50%,-50%) scale(0)'
+  
+    })
+  
+  })
+      
+  })
 
-  // Toggle mute/unmute on clicking video container or custom cursor
-  document.getElementById("video_container").addEventListener("click", function() {
-    if (muted) {
-      video.muted = false;
-      videoCursor.innerHTML = `<i class="ri-volume-mute-fill"></i>`;
-      document.getElementById("play").innerText = "MUTE";
-      gsap.to("#video-cursor", {
-        scale: 0.5
-      });
-      muted = false;
-    } else {
-      video.muted = true;
-      videoCursor.innerHTML = `<i class="ri-volume-up-fill"></i>`;
-      document.getElementById("play").innerText = "PLAY";
-      gsap.to("#video-cursor", {
-        scale: 1
-      });
-      muted = true;
-    }
-  });
 }
-
-cursorAnime();
+cursorAnime()
 
 document.querySelectorAll('.nav-item').forEach(item => {
   item.addEventListener('click', function() {
