@@ -102,7 +102,7 @@ function locomotiveAnimation() {
       scrollTrigger: {
         trigger: "#page1",
         scroller: "#main",
-        start: "top 0",
+        start: "top top",
         end: "top -5%",
         scrub: true,
         
@@ -145,29 +145,44 @@ function locomotiveAnimation() {
             duration: 0.3,
         });
     });
-
-   
-  
-
-
 }
 
 videoAnime();
 
-function TextAnime(){
-  gsap.to("#page1 h1", {
-      y: 0,                // Move to its natural position
-      opacity: 1,          // Fade in as it moves
-      delay: 0.5,
-      duration: 1.2,
-      ease: "power4.out",  // Smooth easing effect
-      stagger: 0.2         // Optional: stagger for multi-line text
+
+
+ // Function to split text into individual spans for animation
+ function splitText() {
+  const headers = document.querySelectorAll(".text-wrapper h1");
+  
+  headers.forEach(header => {
+    const text = header.textContent;
+    header.innerHTML = ''; // Clear the current text
+    
+    // Create span for each letter
+    text.split("").forEach(letter => {
+      const span = document.createElement('span');
+      span.textContent = letter === " " ? '\u00A0' : letter; // Handle spaces
+      header.appendChild(span);
+    });
   });
 }
 
+// GSAP animation for text
+function TextAnime() {
+  gsap.to(".text-wrapper h1 span", {
+    y: 0,                // Move to its natural position
+    opacity: 1,          // Fade in as it moves
+    delay: 0.3,
+    duration: 1.2,
+    ease: "power4.out",  // Smooth easing effect
+    stagger: 0.05        // Stagger each letter
+  });
+}
+
+// Split the text into individual letters and run animation
+splitText();
 TextAnime();
-
-
 // function TextAnime(){
 //     gsap.from("#page1 h1",{
 //         y:50,
@@ -210,35 +225,58 @@ TextAnime();
 
 //     })
 // })
-function cursorAnime(){
-    document.addEventListener("mousemove", function(dets){
-        gsap.to(".usercursor",{
-            left:dets.x,
-            top:dets.y
-    
-        })
-    
-    })
-    document.querySelectorAll(".child").forEach(function(elem){
-        elem.addEventListener("mouseenter",function(){
-          gsap.to(".usercursor",{
-          transform: 'translate(-50%,-50%) scale(1)'
-    
-        })
-    
-     })
-     elem.addEventListener("mouseleave",function(){
-        gsap.to(".usercursor",{
-        transform: 'translate(-50%,-50%) scale(0)'
-    
-      })
-    
-    })
-        
-    })
+function cursorAnime() {
+  var muted = true; // Initial state is muted
+  const video = document.getElementById("video");
+  const videoCursor = document.getElementById("video-cursor");
 
+  // Follow cursor movement
+  document.addEventListener("mousemove", function(dets) {
+    gsap.to(".usercursor1", {
+      left: dets.x,
+      top: dets.y
+    });
+  });
+
+  // Hover effect for elements
+  document.querySelectorAll("#play").forEach(function(elem) {
+    elem.addEventListener("mouseenter", function() {
+      gsap.to(".usercursor1", {
+        transform: 'translate(-50%, -50%) scale(1)',
+        pointerEvents: "auto" // Enable pointer events for clicking
+      });
+    });
+    elem.addEventListener("mouseleave", function() {
+      gsap.to(".usercursor1", {
+        transform: 'translate(-50%, -50%) scale(0)',
+        pointerEvents: "none" // Disable pointer events after leaving
+      });
+    });
+  });
+
+  // Toggle mute/unmute on clicking video container or custom cursor
+  document.getElementById("video_container").addEventListener("click", function() {
+    if (muted) {
+      video.muted = false;
+      videoCursor.innerHTML = `<i class="ri-volume-mute-fill"></i>`;
+      document.getElementById("play").innerText = "MUTE";
+      gsap.to("#video-cursor", {
+        scale: 0.5
+      });
+      muted = false;
+    } else {
+      video.muted = true;
+      videoCursor.innerHTML = `<i class="ri-volume-up-fill"></i>`;
+      document.getElementById("play").innerText = "PLAY";
+      gsap.to("#video-cursor", {
+        scale: 1
+      });
+      muted = true;
+    }
+  });
 }
-cursorAnime()
+
+cursorAnime();
 
 document.querySelectorAll('.nav-item').forEach(item => {
   item.addEventListener('click', function() {

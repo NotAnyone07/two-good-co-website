@@ -103,10 +103,17 @@ body{
     font-family: futura;
     line-height: 14vw;
     letter-spacing: -10px;
-    transform: translateY(100%); /* Start the text outside of view */
-    opacity: 0;    
+    /* transform: translateY(100%); Start the text outside of view */
+    /* opacity: 0;     */
     /* background-color: red;              Initially invisible */
 }
+
+.text-wrapper h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
 #page1_5 {
     position: relative;
     width: 95%; /* Adjust width as needed */
